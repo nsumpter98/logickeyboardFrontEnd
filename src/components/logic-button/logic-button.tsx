@@ -3,7 +3,7 @@ import '@ionic/core';
 
 @Component({
   tag: 'logic-button',
-  shadow: true,
+  shadow: false,
 })
 
 
@@ -11,14 +11,13 @@ export class LogicButton {
 
   @Prop() value: any;
 
-  componentDidLoad() {
-    console.log('this.value');
-    console.log(this.value);
+  componentDidRender() {
+    console.log('this.value - did load');
+    console.log(this.value.htmlValue);
+
     document.getElementById('button' + this.value.id).innerHTML = this.value.htmlValue;
   }
-  componentDidRender(){
-    //document.getElementById('button' + this.value.id).innerHTML = this.value.htmlValue;
-  }
+
 
   onClickHandler(event) {
     let buttonId = event.target.id.slice(6);
@@ -55,14 +54,18 @@ export class LogicButton {
     const style = {
       'font-size': '3rem',
     };
+    console.log('this.value - return');
+    console.log(this.value.id);
     return [
+
       <ion-button style={style}
                   onClick={(event: UIEvent) => this.onClickHandler(event)}
                   strong={true}
                   size={'large'}
                   expand={'block'}
-                  color={'primary'}
+                  background-color={'success'}
                   id={'button' + this.value.id} />,
+
     ];
   }
 }
