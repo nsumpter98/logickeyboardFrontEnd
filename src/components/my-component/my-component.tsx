@@ -12,21 +12,21 @@ export class MyComponent {
 
 
   async postButtonId() {
-    console.log('UPDATE WIRE PRICE');
+    console.log('API');
 
     let response = await fetch('https://localhost:7031/api/LogiCharsAPI');
-
+  let t = await fetch('https://localhost:7031/api/LogiCharsAPI').then((data) => data.json());
     let payload = await response.json();
 
-    return payload;
+    return t;
 
     // do something
   }
 
 
- async render() {
+  render() {
 
-  let payload2 = await this.postButtonId();
+  let payload2 =  this.postButtonId();
   console.log("API connector");
   console.log(payload2);
 
