@@ -19,34 +19,24 @@ export class LogicButton {
   }
 
 
-  onClickHandler(event) {
+ async onClickHandler(event) {
     let buttonId = event.target.id.slice(6);
     console.log(buttonId);
     // todo post to API
     // await postButtonId(buttonId);
 
-    /*
     //TODO: POST EXAMPLE
-    async postButtonId(buttonId) {
       console.log('UPDATE WIRE PRICE');
       let preload = {
         Id: buttonId,
       };
       console.log(preload);
-      let response = await fetch('https://localhost:44345/api/Settings/UpdateWirePrice', {
-        method: 'POST',
-        body: JSON.stringify(preload),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      let response = await fetch('https://localhost:7031/api/LogiCharsAPI/' + buttonId);
       let payload = await response.json();
       console.log('note:');
       console.log(payload);
 
       // do something
-    }
-    */
   }
 
   render() {
