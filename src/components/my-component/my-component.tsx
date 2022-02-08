@@ -39,7 +39,7 @@ export class MyComponent {
               <ion-card className={'ion-padding'}>
                 <ion-row>
                   {payload.map(p => (
-                    <ion-col>
+                    <ion-col sizeSm={'3'}>
                       <logic-button value={p} />
                     </ion-col>
                   ))
